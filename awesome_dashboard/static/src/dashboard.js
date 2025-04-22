@@ -15,8 +15,8 @@ class AwesomeDashboard extends Component {
     static template = "awesome_dashboard.AwesomeDashboard"
 
     setup() {
+        this.action = useService('action')
         this.statisticsService = useService('statistics');
-
         onWillStart(async () => {
             this.statistics = await this.statisticsService.loadStatistics()
         })
