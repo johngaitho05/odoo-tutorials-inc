@@ -1,8 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<templates xml:space="preserve">
+<templates>
 
     <t t-name="awesome_dashboard.AwesomeDashboard">
-        hello dashboard
-    </t>
+        <Layout display="{controlPanel: {} }" className="'o_dashboard h-100'">
+            <t t-set-slot="layout-buttons">
+                <div class="d-inline-flex gap-1">
+                    <button t-on-click="openCustomers" type="button" class="btn btn-primary" title="Customers">Customers</button>
+                    <button t-on-click="openLeads" type="button" class="btn btn-primary ml-2" title="Leads">Leads</button>
+                </div>
+            </t>
 
+            <DashboardItem>
+                <p>Average amount of t-shirt by order this month</p>
+                <h2 style="color: green;text-align: center; font-size: 26px" t-esc="this.statistics.average_quantity"/>
+            </DashboardItem>
+            <DashboardItem>
+                <p>Average time for an order to go from ‘new’ to ‘sent’ or ‘cancelled’</p>
+                <h2 style="color: green;text-align: center; font-size: 26px" t-esc="this.statistics.nb_cancelled_orders"/>
+            </DashboardItem>
+            <DashboardItem>
+                <p>Number of new orders this month</p>
+                <h2 style="color: green;text-align: center; font-size: 26px" t-esc="this.statistics.nb_new_orders"/>
+            </DashboardItem>
+            <DashboardItem>
+                <p>Number of cancelled orders this month</p>
+                <h2 style="color: green;text-align: center; font-size: 26px" t-esc="this.statistics.average_quantity"/>
+            </DashboardItem>
+            <DashboardItem>
+                <p>Total amount of new orders this month</p>
+                <h2 style="color: green;text-align: center; font-size: 26px" t-esc="this.statistics.total_amount"/>
+            </DashboardItem>
+
+            <DashboardItem>
+                <PieChart data="this.statistics.orders_by_size"/>
+            </DashboardItem>
+        </Layout>
+    </t>
 </templates>

@@ -3,7 +3,7 @@ import { mountComponent } from "@web/env";
 import { Playground } from "./playground";
 
 const config = {
-    dev: true,
+    dev: false,
     name: "Owl Tutorial",
 };
 
