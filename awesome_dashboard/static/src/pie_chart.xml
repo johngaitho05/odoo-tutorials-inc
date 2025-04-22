@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <templates>
     <t t-name="awesome_dashboard.PieChart">
-        <canvas t-ref="canvas"/>
+        <canvas t-ref="canvas" style="max-height: 15rem"/>
     </t>
 </templates>

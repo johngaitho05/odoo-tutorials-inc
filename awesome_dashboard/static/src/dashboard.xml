@@ -10,30 +10,32 @@
                 </div>
             </t>
 
-            <DashboardItem>
-                <p>Average amount of t-shirt by order this month</p>
-                <h2 style="color: green;text-align: center; font-size: 26px" t-esc="this.statistics.average_quantity"/>
-            </DashboardItem>
-            <DashboardItem>
-                <p>Average time for an order to go from ‘new’ to ‘sent’ or ‘cancelled’</p>
-                <h2 style="color: green;text-align: center; font-size: 26px" t-esc="this.statistics.nb_cancelled_orders"/>
-            </DashboardItem>
-            <DashboardItem>
-                <p>Number of new orders this month</p>
-                <h2 style="color: green;text-align: center; font-size: 26px" t-esc="this.statistics.nb_new_orders"/>
-            </DashboardItem>
-            <DashboardItem>
-                <p>Number of cancelled orders this month</p>
-                <h2 style="color: green;text-align: center; font-size: 26px" t-esc="this.statistics.average_quantity"/>
-            </DashboardItem>
-            <DashboardItem>
-                <p>Total amount of new orders this month</p>
-                <h2 style="color: green;text-align: center; font-size: 26px" t-esc="this.statistics.total_amount"/>
-            </DashboardItem>
+            <div class="d-flex vertical-baseline flex-wrap">
+                <DashboardItem>
+                    <p>Average amount of t-shirt by order this month</p>
+                    <h2 style="color: green;text-align: center; font-size: 26px" t-esc="this.statistics.average_quantity"/>
+                </DashboardItem>
+                <DashboardItem>
+                    <p>Average time for an order to go from ‘new’ to ‘sent’ or ‘cancelled’</p>
+                    <h2 style="color: green;text-align: center; font-size: 26px" t-esc="this.statistics.nb_cancelled_orders"/>
+                </DashboardItem>
+                <DashboardItem>
+                    <p>Number of new orders this month</p>
+                    <h2 style="color: green;text-align: center; font-size: 26px" t-esc="this.statistics.nb_new_orders"/>
+                </DashboardItem>
+                <DashboardItem>
+                    <p>Number of cancelled orders this month</p>
+                    <h2 style="color: green;text-align: center; font-size: 26px" t-esc="this.statistics.average_quantity"/>
+                </DashboardItem>
+                <DashboardItem>
+                    <p>Total amount of new orders this month</p>
+                    <h2 style="color: green;text-align: center; font-size: 26px" t-esc="this.statistics.total_amount"/>
+                </DashboardItem>
 
-            <DashboardItem>
-                <PieChart data="this.statistics.orders_by_size"/>
-            </DashboardItem>
+                <DashboardItem size="2">
+                    <PieChart data="this.statistics.orders_by_size"/>
+                </DashboardItem>
+            </div>
         </Layout>
     </t>
 </templates>

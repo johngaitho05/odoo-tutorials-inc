@@ -49,12 +49,12 @@ export class PieChart extends Component {
         responsive: true,
         plugins: {
           legend: {
-            position: "top",
+            position: "right",
           },
           title: {
             display: true,
             text: "Shirt orders by size",
-            position: "top",
+            position: "left",
           }
         },
       },
