@@ -9,10 +9,6 @@
         <PieChart data="props.data"/>
     </t>
 
-    <t t-name="awesome_dashboard.HelloComponent">
-        <h1>Hello <t t-esc="props.name"/></h1>
-    </t>
-
     <t t-name="awesome_dashboard.AwesomeDashboard">
         <Layout display="{ controlPanel: {} }" className="'o_dashboard h-100'">
             <t t-set-slot="layout-buttons">
