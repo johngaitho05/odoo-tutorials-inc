@@ -1,18 +1,29 @@
 import { registry } from "@web/core/registry";
-import { memoize } from "@web/core/utils/functions";
-import { rpc } from '@web/core/network/rpc'
+import { rpc } from "@web/core/network/rpc";
+import { reactive } from "@odoo/owl";
 
 const statisticsService = {
-  start() {
+    async start() {
+        const data = reactive({});  // empty reactive object
 
-    const loadStatistics = memoize(async () => {
-      return  await rpc("/awesome_dashboard/statistics");
-    })
+        async function loadData() {
+            const result = await rpc("/awesome_dashboard/statistics");
+            // Update keys in-place to preserve reactivity
+            for (const key in result) {
+                data[key] = result[key];
+            }
+        }
 
-    return {
-      loadStatistics,
-    };
-  },
+        // Initial load
+        await loadData();
+
+        // Refresh every 10 seconds (for testing)
+        setInterval(loadData, 10000);  // use 600000 for 10 minutes in prod
+
+        return {
+            statistics: data,
+        };
+    },
 };
 
 registry.category("services").add("statistics", statisticsService);

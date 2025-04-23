@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<templates>
+<template>
     <t t-name="awesome_dashboard.DashboardItem">
         <div class="card d-inline-block m-2" t-attf-style="min-width:{{ 18 * props.size }}rem">
             <div class="card-body">
-                <t t-slot="default"></t>
+                <t t-slot="default"/>
             </div>
         </div>
     </t>
-</templates>
+</template>
