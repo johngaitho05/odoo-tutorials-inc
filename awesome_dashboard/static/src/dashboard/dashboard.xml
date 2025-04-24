@@ -16,12 +16,15 @@
                     <button t-on-click="openCustomers" type="button" class="btn btn-primary" title="Customers">Customers</button>
                     <button t-on-click="openLeads" type="button" class="btn btn-primary ml-2" title="Leads">Leads</button>
                 </div>
+                <button t-on-click="openSettings" class="btn btn-light float-right" title="Settings">
+                    <i class="fa fa-cog"/>
+                </button>
             </t>
 
             <div class="d-flex vertical-baseline flex-wrap">
-                <t t-foreach="items" t-as="item" t-key="item.id">
+                <t t-foreach="state.items" t-as="item" t-key="item.id">
                     <DashboardItem size="item.size || 1">
-                        <t t-set="itemProp" t-value="item.props ? item.props(statistics) : {'data': statistics}"/>
+                        <t t-set="itemProp" t-value="item.props ? item.props(state.statistics) : {'data': state.statistics}"/>
                         <t t-component="item.Component" t-props="itemProp" />
                     </DashboardItem>
                 </t>

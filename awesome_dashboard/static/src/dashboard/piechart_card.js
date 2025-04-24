@@ -5,7 +5,6 @@ export class PieChartCard extends Component {
   static template = 'awesome_dashboard.PieChartCard'
   static components = { PieChart }
   static props  = {
-    size: { data: Object }
+    data: Object
   }
-
 }

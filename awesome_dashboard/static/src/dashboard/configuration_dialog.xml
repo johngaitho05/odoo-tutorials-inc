@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <t t-name="awesome_dashboard.ConfigurationDialog">
+        <Dialog>
+            <t t-set-slot="header">
+                <div>
+                    <h4>Dashboard items configuration</h4>
+                </div>
+            </t>
+            <div>
+                <ul t-ref="items" class="list-unstyled">
+                    <li t-foreach="items" t-as="item" t-key="item.id">
+                        <span style="padding-right: 0.5rem">
+                            <input type="checkbox" t-att-value="item.id" t-att-checked="!removed.includes(item.id)"/>
+                        </span>
+                        <span t-esc="item.description"/>
+                    </li>
+                </ul>
+            </div>
+            <t t-set-slot="footer">
+                <button class="btn btn-primary" t-on-click="confirm">Done</button>
+            </t>
+        </Dialog>
+    </t>
+</templates>
